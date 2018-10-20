@@ -11,12 +11,44 @@
         <h1>팜므어 번역기</h1>
         <textarea name="" id="" cols="30" rows="10"></textarea>
         <button>번역</button>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
         <div class="result"></div>
     </div>
     <script src="./hangul.js"></script>
     <script>
+       // checkTextarea
+
+        function checkTextarea(){
+
+        }
+
         console.log("하이하이")
+        
+        var textareaVluae = document.querySelector('textarea').value
+        var textareadArr = textareaVluae.split("");
+
+        textareadArr.map(function(gulja){
+            var disassembleArr = Hangul.disassembleArr(gulja);
+            
+            var isElementFour = disassembleArr.lenght; // 4인지 
+            var isMoem = Hangule.isVowel(disassembleArr[1]) && Hangule.isVowel(disassembleArr[2]);
+
+            if(isElementFour && isMoem)
+            {   
+                var tmp = disassembleArr[3];
+                disassembleArr[3] = disassembleArr[2];
+                disassembleArr[2] = tmp;
+                console.log("ddd");
+            }
+            return Hangul.assemble(disassembleArr)
+
+        })
+
+        document.querySelector('button').addEventListener('click', function(){
+            console.log("test");    
+            
+            document.
+            checkTextarea();
+        })
     </script>
     
 </body>
